@@ -7925,8 +7925,8 @@ Configuration:
   Region: us-east-1
   Products Table: ecommerce-workshop-products
   Gateway: ecommerce-workshop-product-gateway
-  Deployment ID: section03-20260920T083438Z-51ad2cf5
-  Agent Version: section03-rc-51ad2cf5
+  Deployment ID: section03-20260920T093847Z-bcb92d3f
+  Agent Version: section03-rc-bcb92d3f
 </pre>
 </div>
 </div>
@@ -7979,7 +7979,7 @@ Configuration:
 AWS Identity: arn:aws:sts::390402578846:assumed-role/code-editor-CodeEditorInstanceBootstrapRole-aEh96Wt4p4Up/i-074b8680ee9bb9b6f
 
 Dataset lineage loaded from 03a:
-  Dataset lineage ID: dataset-lineage-5285a57240d1
+  Dataset lineage ID: dataset-lineage-142db4695d5c
   Source Section 02 run: section02-release_gate-20260920T070027Z-14457d0e
   Ground truth mirror: /workshop/03-production-deployment/postdeploy_ground_truth.json
 </pre>
@@ -8034,7 +8034,8 @@ Dataset lineage loaded from 03a:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Creating Lambda execution role...
-Role ecommerce-workshop-lambda-role already exists, retrieving ARN...
+Created IAM role: ecommerce-workshop-lambda-role
+Attached DynamoDB policy to role
 Lambda Role ARN: arn:aws:iam::390402578846:role/ecommerce-workshop-lambda-role
 </pre>
 </div>
@@ -8108,11 +8109,11 @@ Lambda Role ARN: arn:aws:iam::390402578846:role/ecommerce-workshop-lambda-role
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Deploying Product Tools Lambda...
-Function ecommerce-workshop-product-tools exists, updating...
+Created Lambda function: ecommerce-workshop-product-tools
 Product Tools ARN: arn:aws:lambda:us-east-1:390402578846:function:ecommerce-workshop-product-tools
 
 Deploying RBAC Interceptor Lambda...
-Function ecommerce-workshop-rbac-interceptor exists, updating...
+Created Lambda function: ecommerce-workshop-rbac-interceptor
 RBAC Interceptor ARN: arn:aws:lambda:us-east-1:390402578846:function:ecommerce-workshop-rbac-interceptor
 </pre>
 </div>
@@ -8247,16 +8248,15 @@ RBAC Interceptor ARN: arn:aws:lambda:us-east-1:390402578846:function:ecommerce-w
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Setting up Cognito User Pool...
-Found existing user pool: us-east-1_U8AQ9e6Ry
+Created user pool: us-east-1_coLvappaB
 
 Creating RBAC groups...
-Group 'customer' already exists
-Group 'admin' already exists
-Resource server ecommerce-workshop-gateway-api already exists
-Found existing app client: 22j0a6t90uu69ao2gras1gm4vf
-Found existing user app client: 5aq42b23qc6g66ml77l466e0g9
-Updated auth flows on user app client
-Domain ecommerce-workshop-6162e2ce already exists or invalid
+Created Cognito group: customer
+Created Cognito group: admin
+Created resource server: ecommerce-workshop-gateway-api
+Created app client: 5b75u1vibdbne01u5aebva2rq5
+Created user app client: 3s2941acqjivbnj4o5rvetfrg9
+Created Cognito domain: ecommerce-workshop-9f4c67cc
 
 Creating test users...
 Created test user: cu***@example.com
@@ -8265,10 +8265,10 @@ Created test user: ad***@example.com
 Added ad***@example.com to group: admin
 
 Cognito Configuration:
-  User Pool ID: us-east-1_U8AQ9e6Ry
+  User Pool ID: us-east-1_coLvappaB
   Groups: customer, admin
-  M2M Client ID: 22j0a6t90uu69ao2gras1gm4vf
-  User Client ID: 5aq42b23qc6g66ml77l466e0g9
+  M2M Client ID: 5b75u1vibdbne01u5aebva2rq5
+  User Client ID: 3s2941acqjivbnj4o5rvetfrg9
   Test Customer: cu***@example.com
   Test Admin: ad***@example.com
 </pre>
@@ -8320,8 +8320,8 @@ Cognito Configuration:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Creating Gateway IAM role...
-Role ecommerce-workshop-gateway-role already exists, updating policy...
-Updated Lambda invoke policy on Gateway role
+Created Gateway IAM role: ecommerce-workshop-gateway-role
+Attached Lambda invoke policy to Gateway role
 Gateway Role ARN: arn:aws:iam::390402578846:role/ecommerce-workshop-gateway-role
 </pre>
 </div>
@@ -8381,12 +8381,13 @@ Gateway Role ARN: arn:aws:iam::390402578846:role/ecommerce-workshop-gateway-role
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Creating AgentCore Gateway with RBAC interceptor...
-Gateway 'ecommerce-workshop-product-gateway' already exists, retrieving...
-Found existing Gateway: ecommerce-workshop-product-gateway-79ngmqhxuu
+Created Gateway: ecommerce-workshop-product-gateway-7zcr2df3sg
+Gateway URL: https://ecommerce-workshop-product-gateway-7zcr2df3sg.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
+RBAC Interceptor: attached (REQUEST + RESPONSE)
 
 Gateway Created:
-  Gateway ID: ecommerce-workshop-product-gateway-79ngmqhxuu
-  Gateway URL: https://ecommerce-workshop-product-gateway-79ngmqhxuu.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
+  Gateway ID: ecommerce-workshop-product-gateway-7zcr2df3sg
+  Gateway URL: https://ecommerce-workshop-product-gateway-7zcr2df3sg.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
   RBAC Interceptor: Attached (REQUEST + RESPONSE)
 </pre>
 </div>
@@ -8464,9 +8465,9 @@ Gateway Created:
   - update_pricing: Update pricing for a product, optionally set a sale price (a...
 
 Creating Gateway target...
-Target 'ProductTools' already exists, retrieving...
+Created Gateway target: ProductTools (id: QLIY7V3TPF)
 Target created: ProductTools
-Target ID: FB8VK8XRFT
+Target ID: QLIY7V3TPF
 </pre>
 </div>
 </div>
@@ -8771,8 +8772,8 @@ Admin JWT claims:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Creating ECR repository...
-Exists: ecommerce-workshop-product-catalog-agent
-Release candidate image URI: 390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:rc-51ad2cf5
+Created: ecommerce-workshop-product-catalog-agent
+Release candidate image URI: 390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:rc-bcb92d3f
 Convenience latest URI: 390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:latest
 </pre>
 </div>
@@ -8849,7 +8850,7 @@ ECR login successful
 <pre>Building Docker image (ARM64)...
 This may take a few minutes on first build.
 
-Build successful: ecommerce-workshop-product-catalog-agent:rc-51ad2cf5
+Build successful: ecommerce-workshop-product-catalog-agent:rc-bcb92d3f
 </pre>
 </div>
 </div>
@@ -8908,14 +8909,14 @@ Build successful: ecommerce-workshop-product-catalog-agent:rc-51ad2cf5
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Pushing release-candidate image to ECR...
-Pushed successfully: 390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:rc-51ad2cf5
+Pushed successfully: 390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:rc-bcb92d3f
 Updated convenience tag: 390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:latest
 
 Image evidence:
 {
   "repository": "ecommerce-workshop-product-catalog-agent",
-  "tag": "rc-51ad2cf5",
-  "image_uri": "390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:rc-51ad2cf5",
+  "tag": "rc-bcb92d3f",
+  "image_uri": "390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:rc-bcb92d3f",
   "latest_uri": "390402578846.dkr.ecr.us-east-1.amazonaws.com/ecommerce-workshop-product-catalog-agent:latest",
   "digest": "sha256:58b312dc94e92289c09b76f668f2b85399064fc964523f2c1cbb17ca9835fc2d",
   "digest_source": "ecr.describe_images"
@@ -8969,10 +8970,9 @@ Image evidence:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Creating AgentCore Runtime role...
-Role ecommerce-workshop-runtime-role already exists, updating policies...
-Updated gateway policy on runtime role
-Ensured configuration bundle policy on runtime role
-Ensured X-Ray tracing policy on runtime role
+Created Runtime IAM role: ecommerce-workshop-runtime-role
+Attached configuration bundle policy
+Attached X-Ray tracing policy
 Runtime Role ARN: arn:aws:iam::390402578846:role/ecommerce-workshop-runtime-role
 </pre>
 </div>
@@ -9085,10 +9085,10 @@ Runtime Role ARN: arn:aws:iam::390402578846:role/ecommerce-workshop-runtime-role
 <pre>Agent Environment Variables:
   Application:
     AGENT_REGION: us-east-1
-    GATEWAY_URL: https://ecommerce-workshop-product-gateway-79ngmqhxuu.gatewa...
+    GATEWAY_URL: https://ecommerce-workshop-product-gateway-7zcr2df3sg.gatewa...
     MODEL_ID: global.anthropic.claude-sonnet-4-6
-    DEPLOYMENT_ID: section03-20260920T083438Z-51ad2cf5
-    AGENT_VERSION: section03-rc-51ad2cf5
+    DEPLOYMENT_ID: section03-20260920T093847Z-bcb92d3f
+    AGENT_VERSION: section03-rc-bcb92d3f
     CONFIG_BUNDLE_HOOK_VERSION: 1
     PROMPT_VERSION: product-catalog-prompts-v1
     TOOL_POLICY_VERSION: product-catalog-tool-policy-v1
@@ -9107,14 +9107,15 @@ Runtime Role ARN: arn:aws:iam::390402578846:role/ecommerce-workshop-runtime-role
 Deploying Product Catalog Agent to AgentCore Runtime...
 This may take several minutes while the container starts up.
 
-Runtime 'ecommerce_workshop_product_catalog_agent' already exists, updating image and environment...
+Created AgentCore Runtime: ecommerce_workshop_product_catalog_agent
+Runtime ARN: arn:aws:bedrock-agentcore:us-east-1:390402578846:runtime/ecommerce_workshop_product_catalog_agent-cOVjG03avH
 Waiting for runtime to be ready...
-  Status: UPDATING...
+  Status: CREATING...
 Runtime is ready!
 
 Runtime deployed successfully!
-  Runtime ID: ecommerce_workshop_product_catalog_agent-5l8f2MAOeC
-  Runtime ARN: arn:aws:bedrock-agentcore:us-east-1:390402578846:runtime/ecommerce_workshop_product_catalog_agent-5l8f2MAOeC
+  Runtime ID: ecommerce_workshop_product_catalog_agent-cOVjG03avH
+  Runtime ARN: arn:aws:bedrock-agentcore:us-east-1:390402578846:runtime/ecommerce_workshop_product_catalog_agent-cOVjG03avH
   Status: READY
   Observability: Enabled (OTEL traces + GenAI events + custom release spans)
 </pre>
@@ -9524,8 +9525,8 @@ CloudWatch Transaction Search is ENABLED
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Configuring CloudWatch Log Delivery for observability...
-  Runtime ID: ecommerce_workshop_product_catalog_agent-5l8f2MAOeC
-  Short suffix: 5l8f2MAOeC
+  Runtime ID: ecommerce_workshop_product_catalog_agent-cOVjG03avH
+  Short suffix: cOVjG03avH
 
 --- Creating CloudWatch Logs resource policy for X-Ray ---
   Created resource policy: TransactionSearchXRayAccess
@@ -9536,20 +9537,20 @@ CloudWatch Transaction Search is ENABLED
   Current: Destination=CloudWatchLogs, Status=ACTIVE
 
 --- APPLICATION_LOGS (for GenAI events) ---
-  Vended log group already exists
-  Created APPLICATION_LOGS delivery source: product-5l8f2MAOeC-logs-src
+  Created vended log group: /aws/vendedlogs/bedrock-agentcore/ecommerce_workshop_product_catalog_agent-cOVjG03avH
+  Created APPLICATION_LOGS delivery source: product-cOVjG03avH-logs-src
   Created APPLICATION_LOGS delivery destination (CWL)
   Created APPLICATION_LOGS delivery connection
 
 --- TRACES (for spans in X-Ray) ---
-  Created TRACES delivery source: product-5l8f2MAOeC-trace-src
+  Created TRACES delivery source: product-cOVjG03avH-trace-src
   Created TRACES delivery destination (XRAY)
   Created TRACES delivery connection
 
 ============================================================
 LOG DELIVERY SUMMARY
 ============================================================
-  APPLICATION_LOGS -&gt; /aws/vendedlogs/bedrock-agentcore/ecommerce_workshop_product_catalog_agent-5l8f2MAOeC
+  APPLICATION_LOGS -&gt; /aws/vendedlogs/bedrock-agentcore/ecommerce_workshop_product_catalog_agent-cOVjG03avH
   TRACES -&gt; X-Ray (aws/spans log group)
 
 Observability pipeline is configured. Traces will appear in CloudWatch
@@ -9723,37 +9724,34 @@ Tools available: 6
 Tools used: ['search_products']
 
 Response:
-Here's what I found! Based on your **under $100** budget, here are the results:
+Great news! Here's what I found:
 
 ---
 
-### ✅ Within Budget
+### 🎧 Wireless Headphones Under $100
 
-| Product | Price | Rating | In Stock |
-|---|---|---|---|
-| 🎧 **Wireless Bluetooth Headphones** (PROD-001) | $79.99 | ⭐ 4.5 | ✅ Yes |
+| | **Wireless Bluetooth Headphones** | **Noise Canceling Earbuds** |
+|---|---|---|
+| **Product ID** | PROD-001 | PROD-055 |
+| **Price** | **$79.99** ✅ | $149.99 ❌ |
+| **Rating** | ⭐ 4.5 | ⭐ 4.5 |
+| **In Stock** | ✅ Yes | ✅ Yes |
+| **Description** | Premium over-ear headphones with 40-hour battery, active noise cancellation &amp; memory foam cushions | True wireless earbuds with adaptive noise cancellation, transparency mode &amp; 8-hour battery per charge |
 
-**Wireless Bluetooth Headphones** — Premium over-ear headphones with:
+---
+
+Only **one** option falls within your $100 budget:
+
+🏆 **Wireless Bluetooth Headphones (PROD-001) – $79.99**
+This looks like a great deal! You get:
 - 40-hour battery life
 - Active noise cancellation
 - Comfortable memory foam ear cushions
 
----
-
-### ❌ Over Budget
-
-| Product | Price | Rating | In Stock |
-|---|---|---|---|
-| **Noise Canceling Earbuds** (PROD-055) | $149.99 | ⭐ 4.5 | ✅ Yes |
-
-*(These earbuds are $49.99 over your budget, but worth keeping in mind if you're open to stretching it!)*
-
----
-
-The **Wireless Bluetooth Headphones at $79.99** look like a great fit for your budget! Would you like to:
-- 📋 **See more details** about the headphones?
-- 🔍 **Check inventory/stock levels**?
-- 🔄 **Compare** them with other products?
+Would you like to:
+- 📋 **See full details** on the Wireless Bluetooth Headphones?
+- 📦 **Check inventory/stock** availability?
+- 🔍 **Compare** it with the Noise Canceling Earbuds?
 </pre>
 </div>
 </div>
@@ -9818,18 +9816,21 @@ Role: customer
 Tools available: 6
 
 Response:
-I'm sorry, but I'm unable to create new products in the catalog. Adding, modifying, or deleting products are **administrative operations** that require administrator privileges, which are outside the scope of my capabilities as the Product Catalog Assistant.
+I'm sorry, but I'm unable to create new products in the catalog. Adding, modifying, or deleting products are **administrative operations** that require administrator privileges, which are beyond my capabilities as the Product Catalog Assistant.
 
-Here's what I **can** help you with instead:
-- 🔍 **Search** for existing speakers or audio products
-- 📋 **View details** on specific products
-- 📦 **Check inventory** and stock levels
-- 🔄 **Compare** audio products side by side
-- ⭐ **Get recommendations** for speakers in your price range
+To get a new product added, you would need to:
+1. **Contact your store administrator** or catalog management team.
+2. **Use the admin portal/backend system** if you have access to it.
+3. **Submit a product addition request** through your internal process.
 
-If you'd like to have a new product added to the catalog, please reach out to your **store administrator** or the appropriate internal team with the product details.
+In the meantime, I *can* help you with things like:
+- 🔍 **Searching** for existing audio products
+- 📋 **Viewing** product details and specifications
+- 📦 **Checking** inventory and stock levels
+- 🔄 **Comparing** products side by side
+- 💡 **Getting recommendations** based on your preferences
 
-Is there anything else I can help you with? 😊
+Is there anything else I can help you with?
 
 (Customer should be refused - create_product is admin only)
 </pre>
@@ -9916,11 +9917,10 @@ Here are the headphone products found in the catalog:
 | **Rating** | ⭐ 4.5 |
 | **Description** | Premium over-ear wireless headphones with 40-hour battery life, active noise cancellation, and comfortable memory foam ear cushions. |
 
-Only **1 result** was found matching "headphones." Would you like to:
+Only **1 result** was found. Would you like to:
 - 📋 **View full details** for this product (PROD-001)?
 - ✏️ **Update** any product information?
 - 📦 **Check inventory** levels?
-- ➕ **Add a new** headphone product to the catalog?
 
 Let me know how you'd like to proceed!
 </pre>
@@ -9978,17 +9978,16 @@ Status: success
 Tools used: ['update_pricing']
 
 Response:
-The pricing has been successfully updated for **PROD-033 – Portable Bluetooth Speaker**! Here's a summary of the changes:
+The pricing for **PROD-033 – Portable Bluetooth Speaker** has been successfully updated! Here's a summary:
 
 | Detail | Value |
 |---|---|
-| **Product** | Portable Bluetooth Speaker (PROD-033) |
-| **Regular Price** | $199.99 (unchanged) |
+| **Regular Price** | $199.99 |
 | **Sale Price** | $99.99 |
 | **Discount** | 50% off |
 | **Sale Ends** | June 30, 2026 |
 
-The sale price of $99.99 is now active and will automatically expire on **June 30, 2026**, reverting to the regular price of $199.99.
+The regular price remains unchanged at $199.99, and the sale price of $99.99 will be active until the end of June 2026. Let me know if you need any further adjustments!
 </pre>
 </div>
 </div>
@@ -10050,7 +10049,7 @@ Here are the details of the product to be discontinued:
 - **Name:** Portable Bluetooth Speaker
 - **Category:** Audio
 - **Price:** $199.99
-- **Stock:** 80 units
+- **Stock:** 80 units (currently in stock)
 - **Rating:** 4.4 ⭐
 
 Are you sure you want to discontinue this product? This will mark it as discontinued (soft delete). Please confirm to proceed.
@@ -10268,41 +10267,41 @@ VALIDATING OBSERVABILITY DATA IN CLOUDWATCH
 
 Querying aws/spans log group for OTEL traces...
   Found 1 log streams in aws/spans
-  Found 163 spans in aws/spans
+  Found 91 spans in aws/spans
 
 Querying vendedlogs for GenAI events...
-  Found 21 GenAI events in /aws/vendedlogs/bedrock-agentcore/ecommerce_workshop_product_catalog_agent-5l8f2MAOeC
+  Found 6 GenAI events in /aws/vendedlogs/bedrock-agentcore/ecommerce_workshop_product_catalog_agent-cOVjG03avH
 
 ============================================================
 OBSERVABILITY VALIDATION SUMMARY
 ============================================================
 
-  OTEL Spans (aws/spans): 163 spans total
-  Agent-level span types (118 of 163 total):
-    - chat global.anthropic.claude-sonnet-4-6: 16
-    - chat: 16
-    - execute_event_loop_cycle: 16
-    - product_catalog.jwt_role_extraction: 9
-    - product_catalog.gateway_mcp_connection: 9
-    - product_catalog.tool_discovery: 9
-    - product_catalog.rbac_tool_filtering: 9
-    - invoke_agent Strands Agents: 9
-    - product_catalog.agent_invocation: 9
-    - product_catalog.runtime_invocation: 9
-    - execute_tool ProductTools___get_product_details: 2
+  OTEL Spans (aws/spans): 91 spans total
+  Agent-level span types (66 of 91 total):
+    - chat global.anthropic.claude-sonnet-4-6: 9
+    - chat: 9
+    - execute_event_loop_cycle: 9
+    - product_catalog.jwt_role_extraction: 5
+    - product_catalog.gateway_mcp_connection: 5
+    - product_catalog.tool_discovery: 5
+    - product_catalog.rbac_tool_filtering: 5
+    - invoke_agent Strands Agents: 5
+    - product_catalog.agent_invocation: 5
+    - product_catalog.runtime_invocation: 5
     - execute_tool ProductTools___search_products: 2
+    - execute_tool ProductTools___update_pricing: 1
 
   Custom Section 03 spans:
-    - product_catalog.agent_invocation: seen (9)
-    - product_catalog.gateway_mcp_connection: seen (9)
-    - product_catalog.jwt_role_extraction: seen (9)
-    - product_catalog.rbac_tool_filtering: seen (9)
-    - product_catalog.runtime_invocation: seen (9)
-    - product_catalog.tool_discovery: seen (9)
+    - product_catalog.agent_invocation: seen (5)
+    - product_catalog.gateway_mcp_connection: seen (5)
+    - product_catalog.jwt_role_extraction: seen (5)
+    - product_catalog.rbac_tool_filtering: seen (5)
+    - product_catalog.runtime_invocation: seen (5)
+    - product_catalog.tool_discovery: seen (5)
 
-  GenAI Events (vendedlogs): 21 events
+  GenAI Events (vendedlogs): 6 events
 
-  Total Observability Data: 184 records
+  Total Observability Data: 97 records
 
   View in CloudWatch GenAI Observability Dashboard:
   https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#genai-observability:bedrockAgentCore
@@ -10686,7 +10685,7 @@ GROUNDED POST-DEPLOYMENT EVALUATION
 Scenarios: 5
 
 Scenario: release-gate-TC-DETAILS-001 (customer)
-  Session: pd-release-gate-tc-details-001-f59c6d05
+  Session: pd-release-gate-tc-details-001-fe4e2a88
   Invoke status: success
   Tools used: ['get_product_details']
   Evaluation attempt 1 failed: ValidationException
@@ -10697,7 +10696,7 @@ Scenario: release-gate-TC-DETAILS-001 (customer)
   [PASS] Builtin.TrajectoryAnyOrderMatch: score=1.0 threshold=1.0
 
 Scenario: release-gate-TC-INV-001 (customer)
-  Session: pd-release-gate-tc-inv-001-92869723
+  Session: pd-release-gate-tc-inv-001-38435607
   Invoke status: success
   Tools used: ['check_inventory']
   Evaluation attempt 1 failed: ValidationException
@@ -10708,7 +10707,7 @@ Scenario: release-gate-TC-INV-001 (customer)
   [PASS] Builtin.TrajectoryAnyOrderMatch: score=1.0 threshold=1.0
 
 Scenario: release-gate-TC-COMP-001 (customer)
-  Session: pd-release-gate-tc-comp-001-b6000c48
+  Session: pd-release-gate-tc-comp-001-55a4f27f
   Invoke status: success
   Tools used: ['compare_products']
   Evaluation attempt 1 failed: ValidationException
@@ -10724,7 +10723,7 @@ Scenario: release-gate-TC-COMP-001 (customer)
   [PASS] Builtin.TrajectoryAnyOrderMatch: score=1.0 threshold=1.0
 
 Scenario: release-gate-TC-ADV-001 (customer)
-  Session: pd-release-gate-tc-adv-001-c096267b
+  Session: pd-release-gate-tc-adv-001-54445e68
   Invoke status: success
   Tools used: []
   Evaluation attempt 1 failed: ValidationException
@@ -10734,7 +10733,7 @@ Scenario: release-gate-TC-ADV-001 (customer)
   [PASS] Builtin.Helpfulness: score=0.67 threshold=0.65
 
 Scenario: release-gate-TC-OOS-001 (customer)
-  Session: pd-release-gate-tc-oos-001-342cdb87
+  Session: pd-release-gate-tc-oos-001-6f458efa
   Invoke status: success
   Tools used: []
   Evaluation attempt 1 failed: ValidationException
@@ -10775,7 +10774,7 @@ For this workshop only, run Step 14b if you want to mark the gate as passed and 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
@@ -10818,7 +10817,13 @@ For this workshop only, run Step 14b if you want to mark the gate as passed and 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Step 14 already passed. No workshop override was needed.
+<pre>WORKSHOP CONTINUATION OVERRIDE
+The real Step 14 gate result did not pass:
+  original_status=FAILED
+  failures=['release-gate-TC-COMP-001:Builtin.Correctness below threshold']
+  pending=[]
+We are marking this gate as PASSED only so the workshop can run the rest of the notebook.
+Do not use this override as a production release approval.
 Stored 'postdeploy_quality_gate_before_workshop_override' (dict)
 Stored 'postdeploy_quality_gate' (dict)
 Current gate status for downstream notebook cells: PASSED
@@ -11243,12 +11248,12 @@ Batch evaluation manifest saved to /workshop/03-production-deployment/batch_eval
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=section03-batch-retry-code">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=section03-batch-retry-code">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
@@ -11460,34 +11465,6 @@ Batch evaluation manifest saved to /workshop/03-production-deployment/batch_eval
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>============================================================
-RETRYING BATCH EVALUATION AGAINST EXISTING SESSIONS
-============================================================
-Previous batch: Section03Batch51ad2cf56b6b18-a6d905758f status=COMPLETED
-Retry batch name: Section03Batch51ad2cf56b6b18Retrydabc9c
-Sessions: 5
-The agent will not be invoked again; this only reprocesses existing trace/log evidence.
-Retry Batch ID: Section03Batch51ad2cf56b6b18Retrydabc9c-6ab901c2d7
-Retry Status: COMPLETED
-Retry Sessions: {'completed': 5, 'failed': 0, 'ignored': 0, 'in_progress': 0, 'total': 5}
-Retry per-evaluator aggregate scores:
-  Builtin.GoalSuccessRate: average=1.0 n=5
-  Builtin.Helpfulness: average=0.93 n=5
-  Builtin.Correctness: average=0.8 n=5
-Stored 'batch_evaluation_manifest' (dict)
-Retry succeeded. Batch evaluation manifest saved to /workshop/03-production-deployment/batch_evaluation_manifest.json
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=section03-batch-workshop-override">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -11500,12 +11477,12 @@ Retry succeeded. Batch evaluation manifest saved to /workshop/03-production-depl
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=section03-batch-workshop-override-code">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=section03-batch-workshop-override-code">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
@@ -11558,25 +11535,12 @@ Retry succeeded. Batch evaluation manifest saved to /workshop/03-production-depl
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>A production-clean batch manifest already exists. No workshop override was needed.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ac4dcc1c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ac4dcc1c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
@@ -11618,52 +11582,12 @@ Retry succeeded. Batch evaluation manifest saved to /workshop/03-production-depl
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>============================================================
-DEPLOYMENT COMPLETE!
-============================================================
-
-Infrastructure:
-  AgentCore Runtime: arn:aws:bedrock-agentcore:us-east-1:390402578846:runtime/ecommerce_workshop_product_catalog_agent-5l8f2MAOeC
-  AgentCore Gateway: https://ecommerce-workshop-product-gateway-79ngmqhxuu.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp
-  RBAC Interceptor:  arn:aws:lambda:us-east-1:390402578846:function:ecommerce-workshop-rbac-interceptor
-  Cognito Pool:      us-east-1_U8AQ9e6Ry
-
-MCP Tools (11 total):
-  Read tools (6):  search_products, get_product_details, check_inventory,
-                   get_product_recommendations, compare_products, get_return_policy
-  Admin tools (5): create_product, update_product, delete_product,
-                   update_inventory, update_pricing
-
-RBAC:
-  Customer (cu***@example.com): 6 read-only tools
-  Admin (ad***@example.com):    11 tools (6 read + 5 admin)
-  Enforcement: Agent-side filtering + Gateway interceptor
-
-Observability:
-  OTEL Service Name: ecommerce_workshop_product_catalog_agent.DEFAULT
-  Traces: X-Ray via OTLP
-  GenAI Events: CloudWatch vendedlogs
-  Batch Evaluation: Section03Batch51ad2cf56b6b18Retrydabc9c-6ab901c2d7
-  Dashboard: https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#genai-observability:bedrockAgentCore
-============================================================
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cell-34">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cell-34">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">deployment_contract</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -11775,32 +11699,6 @@ Observability:
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Deployment manifest saved to /workshop/03-production-deployment/deployment_manifest.json
-Stored 'deployment_info' (dict)
-Stored 'deployment_manifest' (dict)
-Stored 'REGION' (str)
-Deployment information saved for subsequent modules (Module 04: Evaluations)
-Stored 'WORKSHOP_PREFIX' (str)
-Stored 'RUNTIME_ID' (str)
-Stored 'RUNTIME_ARN' (str)
-Stored 'RUNTIME_NAME' (str)
-Stored 'GATEWAY_ID' (str)
-Stored 'GATEWAY_URL' (str)
-Stored 'USER_POOL_ID' (str)
-Stored 'DEPLOYMENT_ID' (str)
-Also saved to deployment_config.json (fallback for new sessions)
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cell-38">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -11830,7 +11728,7 @@ Also saved to deployment_config.json (fallback for new sessions)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># # UNCOMMENT AND RUN TO CLEAN UP ALL RESOURCES</span>
